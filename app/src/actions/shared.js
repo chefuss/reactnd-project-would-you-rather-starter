@@ -1,7 +1,7 @@
 import { getInitialData } from '../utils/api'
 import { receiveUsers } from './users'
 import { receivePolls } from './polls'
-import { setAuthedUser } from './authedUser'
+import { setAuthedUser } from './authedUser';
 
 //todo: change this to get the value from the login page
 const AUTHED_ID = 'sarahedo';

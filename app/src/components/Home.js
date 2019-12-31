@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Poll from './Poll';
+import PollResult from './PollResult';
 
 class Home extends Component {
   render() {
@@ -11,7 +11,7 @@ class Home extends Component {
         <ul className="poll-list">
           {this.props.pollsIds.map(id => (
             <li key={id}>
-              <Poll id={id} />
+              <PollResult id={id} />
             </li>
           ))}
         </ul>

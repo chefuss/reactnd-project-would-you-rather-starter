@@ -2,37 +2,81 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.container {
+  max-width: 1080px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--padding);
+  color: var(--gray);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.poll-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
   display: flex;
-  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.poll-list li {
+  margin: var(--margin);
+  max-width: 34.5rem;
+  width: 100%;
+}
+@media screen and (min-width: 768px) {
+  .poll-list li {
+    margin: var(--margin) auto;
+    /* width: calc(50% - var(--margin)); */
+  }
+}
+.poll-container {
+  box-shadow: 0px 4px 4px var(--shadow);
+  padding: var(--padding);
+  border-radius: var(--padding);
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  flex-wrap: wrap;
+}
+.poll-container h3 {
+  flex-basis: 100%;
+  margin-top: 0;
+  margin-bottom: var(--margin);
 }
 
-.App-link {
-  color: #61dafb;
+.user-image {
+  flex-basis: calc(7% - var(--padding));
+  padding-right: var(--padding);
+}
+.poll-info {
+  flex-basis: calc(73% - var(--padding));
+  padding-left: var(--padding);
+  border-left: 1px solid var(--light-grey);
+}
+.poll-info h4 {
+  margin: 0;
+  font-size: var(--h3-size);
+}
+.btn {
+  width: auto;
+  flex-basis: auto;
+  border: 0;
+  padding: 0.5rem var(--padding);
+  font-size: var(--text-size);
+  background-color: var(--violet);
+  color: #ffffff;
+  border-radius: var(--border-radius);
+  transition: background-color 0.3s;
+  cursor: pointer;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn:hover {
+  background-color: var(--darkViolet);
+}
+
+.poll-option {
+  margin: 0.5rem 0;
+}
+.poll-option:last-of-type {
+  margin-bottom: 1rem;
 }
