@@ -1,17 +1,18 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import PollResult from './PollResult';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import Poll from './Poll'
+import PollQuestion from './PollQuestion'
+import PollResult from './PollResult'
 
 class Home extends Component {
   render() {
-    console.log(this.props);
     return (
       <div>
         <h3 className="center">Answered Questions</h3>
         <ul className="poll-list">
           {this.props.pollsIds.map(id => (
             <li key={id}>
-              <PollResult id={id} />
+              <Poll id={id} />
             </li>
           ))}
         </ul>
