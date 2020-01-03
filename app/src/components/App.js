@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { handleInitialData } from '../actions/shared'
 
 import Home from './Home'
-import PollPage from './PollPage';
+import PollPage from './PollPage'
+import NewPoll from './NewPoll'
 
 //import login
 
@@ -19,7 +20,8 @@ class App extends Component {
       <div className="container">
       {
         this.props.loading === true ? null : (
-          <PollPage match={{ params: { id: "8xf0y6ziyjabvozdd253nd" } }} />
+          
+          <NewPoll />
         )
       }
         
@@ -33,3 +35,6 @@ function mapStateToProps({ authedUser }) {
   };
 }
 export default connect(mapStateToProps)(App);
+{
+  /* <PollPage match={{ params: { id: "8xf0y6ziyjabvozdd253nd" } }} /> */
+}
