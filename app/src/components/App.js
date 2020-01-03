@@ -5,6 +5,7 @@ import { handleInitialData } from '../actions/shared'
 import Home from './Home'
 import PollPage from './PollPage'
 import NewPoll from './NewPoll'
+import LeaderBoard from './LeaderBoard'
 
 //import login
 
@@ -21,7 +22,7 @@ class App extends Component {
       {
         this.props.loading === true ? null : (
           
-          <NewPoll />
+          <LeaderBoard />
         )
       }
         
@@ -35,6 +36,7 @@ function mapStateToProps({ authedUser }) {
   };
 }
 export default connect(mapStateToProps)(App);
+{/* <NewPoll /> */}
 {
   /* <PollPage match={{ params: { id: "8xf0y6ziyjabvozdd253nd" } }} /> */
 }
