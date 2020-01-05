@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 class Poll extends Component {
   render() {
     const { poll, author } = this.props
-    console.log(this.props)
     return (
       <div className="poll-container">
         <h3 className="user-name">{`${author.name} says:`}</h3>
@@ -14,7 +15,9 @@ class Poll extends Component {
         <div className="poll-info">
           <h4>Would you rather ...</h4>
           <p className="poll-options">{`${poll.optionOne.text} or ${poll.optionTwo.text}`}</p>
-          <button className="btn">View Poll</button>
+          <Link to={`/poll/${poll.id}`}>
+            <button className="btn">View Poll</button>
+          </Link>
         </div>
       </div>
     );
@@ -24,7 +27,7 @@ class Poll extends Component {
 function mapStateToProps ( { users, polls }, { id }) {
   const poll = polls[id]
   return {
-    author : users[poll.author],
+    author: users[poll.author],
     poll
   }
 }

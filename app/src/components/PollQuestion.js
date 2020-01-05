@@ -1,24 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { handleAddAnswer } from '../actions/polls'
+// import { withRouter } from 'react-router-dom';
 
 class PollQuestion extends Component {
   state = {
-    userAnswer : ''
-  }
-  handleChange = (e) => {
+    userAnswer: ''
+  };
+  handleChange = e => {
     const answer = e.target.value;
     this.setState({
       userAnswer: answer
     });
+  };
+  handleSubmit = e => {
+    e.preventDefault();
 
-  }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    
-    const { dispatch, id, authedUser } = this.props
+    const { dispatch, id, authedUser } = this.props;
     const { userAnswer } = this.state;
-    
+
     dispatch(
       handleAddAnswer({
         qid: id,
@@ -29,14 +29,12 @@ class PollQuestion extends Component {
     this.setState({
       userAnswer: ''
     });
-
-    //redirect to poll results
-    //this.props.history.push(`/poll-result/${id}`);
-  }
+    this.props.showResults();
+  };
   render() {
-    const { poll, author } = this.props
-    const { userAnswer } = this.state
-
+    const { poll, author } = this.props;
+    const { userAnswer } = this.state;
+    console.log(this.props)
     return (
       <div className="poll-container">
         <h3 className="user-name">{`${author.name} says:`}</h3>
@@ -72,7 +70,9 @@ class PollQuestion extends Component {
                 {poll.optionTwo.text}
               </label>
             </div>
-            <button className="btn submit" disabled={userAnswer === ''}>Vote</button>
+            <button className="btn submit" disabled={userAnswer === ''}>
+              Vote
+            </button>
           </form>
         </div>
       </div>
@@ -80,12 +80,12 @@ class PollQuestion extends Component {
   }
 }
 
-function mapStateToProps({authedUser, users, polls }, {id}) {
-  const poll = polls[id]
-
+function mapStateToProps({authedUser, users, polls }, props) {
+  console.log(props)
+  const poll = polls[props.id]
   return {
     authedUser,
-    id,
+    id : props.id,
     author: users[poll.author],
     poll
   };

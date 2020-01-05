@@ -32,7 +32,7 @@ export function handleAddAnswer(info) {
   }
 }
 
-export function addQuestion ({question}) {
+export function addQuestion (question) {
   return {
     type: ADD_QUESTION,
     question
@@ -46,6 +46,7 @@ export function handleAddQuestion(optionOneText, optionTwoText) {
       optionOneText,
       optionTwoText,
       author: authedUser
-    }).then((question) => dispatch(addQuestion(question)));
+    }).then((question) => {
+      dispatch(addQuestion(question))});
   };
 }

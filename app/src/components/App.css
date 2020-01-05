@@ -10,7 +10,26 @@
   color: var(--gray);
   min-height: 100vh;
 }
-
+header, .nav ul {
+  display: flex;
+  justify-content: space-between;
+}
+.nav ul {
+  list-style: none;
+  padding: 0;
+}
+.nav a {
+  text-decoration: none;
+}
+.nav li {
+  margin-left: 1.2rem;
+}
+.nav li:first-of-type {
+  margin-left: 0;
+}
+a.active {
+  font-weight: 600;
+}
 .poll-list {
   list-style: none;
   padding: 0;

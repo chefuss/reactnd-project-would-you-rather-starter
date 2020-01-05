@@ -3,16 +3,15 @@ import { connect } from 'react-redux';
 
 class PollResult extends Component {
   render() {
-    const {authedUser, poll, author, optionOne, optionTwo } = this.props;
+    const { authedUser, poll, author, optionOne, optionTwo } = this.props;
     const totalVotes = optionOne.length + optionTwo.length;
     //the width is (100% / totalVotes ) / option
-    const optionOneWidth = optionOne.length > 0 ? (totalVotes / optionOne.length) * 100 : 0;
-    console.log(optionOneWidth);
-    const optionTwoWidth = optionTwo.length > 0 ? (totalVotes / optionTwo.length) * 100 : 0;
-    console.log(optionTwoWidth)
+    const optionOneWidth =
+      optionOne.length > 0 ? (totalVotes / optionOne.length) * 100 : 0;
+    const optionTwoWidth =
+      optionTwo.length > 0 ? (totalVotes / optionTwo.length) * 100 : 0;
     const findOne = optionOne.filter(userId => userId === authedUser);
     const findTwo = optionTwo.filter(userId => userId === authedUser);
-
 
     return (
       <div className="poll-container">
@@ -57,7 +56,7 @@ class PollResult extends Component {
 }
 
 function mapStateToProps({ authedUser, users, polls }, { id }) {
-  const poll = polls[id];
+  const poll = polls[id];  
   return {
     authedUser,
     author: users[poll.author],

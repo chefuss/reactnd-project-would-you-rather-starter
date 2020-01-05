@@ -1,42 +1,34 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux'
-import { handleInitialData } from '../actions/shared'
+import React, { Component, Fragment } from 'react'
+import { BrowserRouter as Router } from 'react-router-dom'
+import { connect } from 'react-redux';
+import { handleInitialData } from '../actions/shared';
 
-import Home from './Home'
-import PollPage from './PollPage'
-import NewPoll from './NewPoll'
-import LeaderBoard from './LeaderBoard'
-
-//import login
+import Login from './Login'
 
 import './App.css';
+import PrivateApp from './PrivateApp';
 
 class App extends Component {
   componentDidMount() {
-    this.props.dispatch(handleInitialData())
+    this.props.dispatch(handleInitialData());
   }
-
   render() {
+    const { authedUser } = this.props
+    console.log(authedUser)
     return (
-      <div className="container">
-      {
-        this.props.loading === true ? null : (
-          
-          <LeaderBoard />
-        )
-      }
-        
-      </div>
+      <Router>
+        <Fragment>
+        {authedUser === null ? <Login /> : <PrivateApp />}
+        </Fragment>
+      </Router>
     );
   }
 }
+
 function mapStateToProps({ authedUser }) {
   return {
-    loading: authedUser === null
+    authedUser
   };
 }
+
 export default connect(mapStateToProps)(App);
-{/* <NewPoll /> */}
-{
-  /* <PollPage match={{ params: { id: "8xf0y6ziyjabvozdd253nd" } }} /> */
-}

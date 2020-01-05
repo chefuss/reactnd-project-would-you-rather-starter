@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { handleAddQuestion } from '../actions/polls';
+import { handleAddQuestion } from '../actions/polls'
+import { Redirect } from 'react-router-dom';
+
 
 class NewPoll extends Component {
   state = {
     optionOneText: '',
-    optionTwoText: ''
+    optionTwoText: '',
+    message: '',
+    toHome: false
   };
   handleChange = e => {
     const target = e.target.name;
@@ -14,20 +18,30 @@ class NewPoll extends Component {
     this.setState({
       [target]: option
     });
-  };
+  }
   handleSubmit = e => {
     e.preventDefault();
     const { optionOneText, optionTwoText } = this.state;
     const { dispatch } = this.props;
 
-    dispatch(handleAddQuestion(optionOneText, optionTwoText));
-
+    dispatch(handleAddQuestion(optionOneText, optionTwoText))
     this.setState({
-      optionOneText: '',
-      optionTwoText: ''
-    });
-  };
+      message: 'Question added successfully, redirecting to home'
+    })
+    setTimeout(() => {
+
+      return (this.setState({
+        optionOneText: '',
+        optionTwoText: '',
+        toHome: true
+      })
+    )}, 1500)
+  }
   render() {
+    const { toHome, message } = this.state
+    if (toHome) {
+      return <Redirect to='/' />
+    }
     return (
       <div className="poll-container">
         <h2>Create a New Poll, add Two option to the form and save.</h2>
@@ -56,6 +70,9 @@ class NewPoll extends Component {
             />
             {/* {invalid === true && <p className="error">Invalid username</p>} */}
           </div>
+          {
+            message !== '' && <p className="form-message">{message}</p>
+          }
           <button className="btn submit" type="submit">
             Save
           </button>

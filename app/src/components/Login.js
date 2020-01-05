@@ -1,35 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
+import { withRouter } from 'react-router-dom'
 
 class Login extends Component {
   state = {
-    username : '',
-    invalid: false
-  }
-  handleChange = (e) => {
-    const user = e.target.value
-    this.setState({
-      username: user
-    })
-  }
-  handleSubmit = (e) => {
-    e.preventDefault()
-    const { username } = this.state
-    const { dispatch, users } = this.props
-    const validUser = users.some((user) => user === username )
+    username: '',
+    invalid: true
+  };
+  handleChange = e => {
+    const username = e.target.value;
+    const { users } = this.props
+    const validUser = users.some(user => user === username);
     if (validUser) {
-      dispatch(setAuthedUser(username))
       this.setState({
-        username : '',
+        username,
         invalid: false
-      })
-    } else {
-      this.setState({
-        invalid: true
-      })
+      });
     }
-  }
+  };
+  handleSubmit = e => {
+    e.preventDefault();
+    const { username } = this.state;
+    const { dispatch } = this.props;
+    dispatch(setAuthedUser(username));
+     this.props.history.push('/');
+  };
   render() {
     const { username, invalid } = this.state
     return (
@@ -61,9 +57,10 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     users: Object.keys(users)
   };
 }
-export default connect(mapStateToProps)(Login);
+export default withRouter(connect(mapStateToProps)(Login));
