@@ -5,17 +5,16 @@ import Leader from './Leader';
 class LeaderBoard extends Component {
   render() {
     const { users } = this.props;
-    console.log(users)
     return (
       <Fragment>
         <h1>LeaderBoard</h1>
-        <ol className="leader-list">
-          {users.map(id => (
+        <ul className="leader-list">
+          {users.map((id, index) => (
             <li key={id} className="leader-container">
-              <Leader id={id} />
+              <Leader id={id} position={index + 1} />
             </li>
           ))}
-        </ol>
+        </ul>
       </Fragment>
     );
   }

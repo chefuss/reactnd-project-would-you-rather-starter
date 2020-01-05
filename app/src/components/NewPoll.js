@@ -69,7 +69,7 @@ class NewPoll extends Component {
             />
           </div>
           {
-            message !== '' && <p className="form-message">{message}</p>
+            message !== '' && <p className="notice">{message}</p>
           }
           <button className="btn submit" type="submit">
             Save

@@ -16,10 +16,9 @@ class Home extends Component {
   render() {
     const { hasAnswerd, hasentAnswerd } = this.props;
     const { showing } = this.state;
-    console.log(hasentAnswerd.length)
     return (
       <Fragment>
-        <h3>
+        <h3 className="toggle-heading">
           <span
             onClick={this.handleClick}
             className={showing === 'Unanswered Questions' ? 'active' : ''}
@@ -76,9 +75,6 @@ function mapStateToProps({ authedUser, polls, users }) {
     .filter(id => !users[authedUser].answers.hasOwnProperty(id))
     .sort((a, b) => polls[b].timestamp - polls[a].timestamp);
   return {
-    pollsIds: Object.keys(polls).sort(
-      (a, b) => polls[b].timestamp - polls[a].timestamp
-    ),
     hasAnswerd,
     hasentAnswerd
   };

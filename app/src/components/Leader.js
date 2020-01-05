@@ -3,19 +3,22 @@ import { connect } from 'react-redux';
 
 class Leader extends Component {
   render() {
-    const { user } = this.props;
+    const { user, position } = this.props;
     const questionsAnswerd = Object.keys(user.answers)
     const questionsAsked = user.questions
 
     return (
       <div className="poll-container">
-        <h3 className="user-name">{user.name}</h3>
-        <div className="user-image">
-          <img src={user.avatarURL} alt={user.name} />
-        </div>
-        <div className="poll-info">
-          <p>Questions answerd: {questionsAnswerd.length}</p>
-          <p>Questions asked: {questionsAsked.length}</p>
+        <div className="position">{position}</div>
+        <div className="content">
+          <h3 className="user-name">{user.name}</h3>
+          <div className="user-image">
+            <img src={user.avatarURL} alt={user.name} />
+          </div>
+          <div className="poll-info">
+            <p>Questions answerd: {questionsAnswerd.length}</p>
+            <p>Questions asked: {questionsAsked.length}</p>
+          </div>
         </div>
         <div className="score">
           <h3>Score</h3>
@@ -26,7 +29,7 @@ class Leader extends Component {
   }
 }
 
-function mapStateToProps({ users }, { id }) {
+function mapStateToProps({ users }, { id, position }) {
   const user = users[id]
   return {
     user,
