@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import { handleAddQuestion } from '../actions/polls'
 import { Redirect } from 'react-router-dom';
@@ -43,11 +43,12 @@ class NewPoll extends Component {
       return <Redirect to='/' />
     }
     return (
-      <div className="poll-container">
-        <h2>Create a New Poll, add Two option to the form and save.</h2>
-        <form onSubmit={this.handleSubmit}>
+      <Fragment>
+        <h1>New Question</h1>
+        <h2>Create a New Poll, add two options to the form and save.</h2>
+        <form onSubmit={this.handleSubmit} className="new-question-form">
+          <legend>Would you rather ...</legend>
           <div className="input_group">
-            <label htmlFor="optionOne">Enter the text for the option one</label>
             <input
               type="text"
               name="optionOneText"
@@ -56,10 +57,8 @@ class NewPoll extends Component {
               placeholder="enter the option one"
               onChange={this.handleChange}
             />
-            {/* {invalid === true && <p className="error">Invalid username</p>} */}
           </div>
           <div className="input_group">
-            <label htmlFor="optionTwo">Enter the text for the option one</label>
             <input
               type="text"
               name="optionTwoText"
@@ -68,7 +67,6 @@ class NewPoll extends Component {
               placeholder="enter the option two"
               onChange={this.handleChange}
             />
-            {/* {invalid === true && <p className="error">Invalid username</p>} */}
           </div>
           {
             message !== '' && <p className="form-message">{message}</p>
@@ -77,7 +75,7 @@ class NewPoll extends Component {
             Save
           </button>
         </form>
-      </div>
+      </Fragment>
     );
   }
 }

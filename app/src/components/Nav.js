@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import { setAuthedUser } from '../actions/authedUser'
+import User from './User'
 
 class Nav extends Component {
   handleClick = (e) => {
@@ -32,7 +33,7 @@ class Nav extends Component {
         </nav>
         <div className="nav">
           <ul>
-            <li>user component</li>
+            <li><User /></li>
             <li>
               <NavLink to="/login" className="btn" onClick={this.handleClick}>
                 Log out

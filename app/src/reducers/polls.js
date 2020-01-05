@@ -8,7 +8,6 @@ export default function polls(state = {}, action) {
         ...action.questions
       }
     case ADD_ANSWER:
-      console.log(action)
       return {
         ...state,
         [action.qid]: {

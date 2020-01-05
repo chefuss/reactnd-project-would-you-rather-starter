@@ -6,7 +6,7 @@ import { withRouter } from 'react-router-dom'
 class Login extends Component {
   state = {
     username: '',
-    invalid: true
+    invalid: ''
   };
   handleChange = e => {
     const username = e.target.value;
@@ -16,6 +16,10 @@ class Login extends Component {
       this.setState({
         username,
         invalid: false
+      });
+    } else {
+      this.setState({
+        invalid: true
       });
     }
   };
@@ -47,8 +51,7 @@ class Login extends Component {
           <button
             className="btn submit"
             type="submit"
-            disabled={username === ''}
-          >
+            disabled={username === ''}>
             Log in
           </button>
         </form>

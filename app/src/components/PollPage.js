@@ -21,7 +21,6 @@ class PollPage extends Component {
 
     return (
       <Fragment>
-        <h1>Poll</h1>
         {toResult === false ? (
           <PollQuestion id={id} showResults={this.showResults} />
         ) : (

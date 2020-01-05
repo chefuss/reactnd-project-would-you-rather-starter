@@ -10,9 +10,16 @@
   color: var(--gray);
   min-height: 100vh;
 }
+img {
+  max-width: 100%;
+}
+h1 {
+  color: var(--violet);
+}
 header, .nav ul {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 .nav ul {
   list-style: none;
@@ -20,6 +27,7 @@ header, .nav ul {
 }
 .nav a {
   text-decoration: none;
+  color: var(--gray);
 }
 .nav li {
   margin-left: 1.2rem;
@@ -27,8 +35,14 @@ header, .nav ul {
 .nav li:first-of-type {
   margin-left: 0;
 }
-a.active {
+.active, a.active {
   font-weight: 600;
+  color: var(--violet);
+}
+.poll-list .notice {
+  font-weight: 600;
+  color: var(--darkViolet);
+  margin: 0;
 }
 .poll-list {
   list-style: none;
@@ -38,17 +52,19 @@ a.active {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.poll-list li {
+.poll-list li, .new-question-form {
   margin: var(--margin);
   max-width: 34.5rem;
   width: 100%;
 }
+
 @media screen and (min-width: 768px) {
   .poll-list li {
     margin: var(--margin) auto;
     /* width: calc(50% - var(--margin)); */
   }
 }
+
 .poll-container {
   box-shadow: 0px 4px 4px var(--shadow);
   padding: var(--padding);
@@ -63,11 +79,31 @@ a.active {
   margin-top: 0;
   margin-bottom: var(--margin);
 }
-
+.leader-list .poll-container {
+  box-shadow: none;
+}
+.leader-container {
+  box-shadow: 0px 4px 4px var(--shadow);
+  border-radius: var(--border-radius);
+}
 .user-image {
   flex-basis: calc(25% - var(--padding));
   padding-right: var(--padding);
   text-align: center;
+}
+
+.user {
+  text-align: right;
+}
+.user .user-image {
+  display: inline-block;
+  max-width: 25%;
+  vertical-align: middle;
+  padding-right: 1rem;
+}
+.user .user-name {
+  display: inline;
+
 }
 .poll-info {
   flex-basis: calc(75% - var(--padding));
@@ -123,16 +159,27 @@ a.active {
   transition: background-color 0.3s;
   cursor: pointer;
 }
-
+a.btn {
+  color: #ffffff;
+}
 .btn:hover {
   background-color: var(--darkViolet);
 }
-
+.new-question-form {
+  margin: calc(var(--margin) * 2) auto;
+  text-align: center;
+} 
 .input_group {
-  margin: 0.5rem 0;
+  margin: 1.2rem 0;
 }
 .input_group:last-of-type {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+.new-question-form legend {
+  font-size: var(--h2-size);
+}
+.new-question-form .submit {
+  width: 100%;
 }
 .input_text {
   width: 100%;
