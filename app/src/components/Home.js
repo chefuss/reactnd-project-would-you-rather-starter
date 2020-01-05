@@ -17,7 +17,7 @@ class Home extends Component {
     const { hasAnswerd, hasentAnswerd } = this.props;
     const { showing } = this.state;
     return (
-      <Fragment>
+      <div className="home">
         <h3 className="toggle-heading">
           <span
             onClick={this.handleClick}
@@ -41,7 +41,7 @@ class Home extends Component {
               )}
               {hasAnswerd.length > 0 &&
                 hasAnswerd.map(id => (
-                  <li key={id}>
+                  <li key={id} className="poll-container">
                     <Poll id={id} />
                   </li>
                 ))}
@@ -56,7 +56,7 @@ class Home extends Component {
               )}
               {hasentAnswerd.length > 0 && (
                 hasentAnswerd.map(id => (
-                <li key={id}>
+                <li key={id} className="poll-container">
                   <Poll id={id} />
                 </li>
                 ))
@@ -64,7 +64,7 @@ class Home extends Component {
             </ul>
           </Fragment>
         )}
-      </Fragment>
+      </div>
     );
   }
 }

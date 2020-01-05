@@ -33,7 +33,7 @@ class Login extends Component {
   render() {
     const { username, invalid } = this.state
     return (
-      <div className="login">
+      <div className="login container">
         <h1 className="center">Welcome to Would You Rather ...</h1>
         <h2>Login to gain access</h2>
         <form onSubmit={this.handleSubmit}>

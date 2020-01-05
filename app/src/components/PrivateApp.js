@@ -24,13 +24,13 @@ class App extends Component {
           <div className="container">
             <Nav />
             {this.props.loading === true ? null : (
-              <div>
+              <main className="main">
                 <Route path="/" exact component={Home} />
                 <Route path="/newPoll" component={NewPoll} />
                 <Route path="/leaderBoard" component={LeaderBoard} />
                 <Route path="/poll/:id" component={PollPage} />
                 <Route path="/poll-result/:id" component={PollResult} />
-              </div>
+              </main>
             )}
           </div>
         </Fragment>

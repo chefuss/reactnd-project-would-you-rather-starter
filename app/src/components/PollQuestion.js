@@ -47,30 +47,28 @@ class PollQuestion extends Component {
             <h4>Would you rather ...</h4>
             <form className="poll-form" onSubmit={this.handleSubmit}>
               <div className="input_group">
-                <label>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="optionOne"
-                    value="optionOne"
-                    checked={userAnswer === 'optionOne'}
-                    onChange={this.handleChange}
-                  />
-                  {poll.optionOne.text}
-                </label>
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionOne"
+                  value="optionOne"
+                  checked={userAnswer === 'optionOne'}
+                  onChange={this.handleChange}
+                  className="input_radio"
+                />
+                <label htmlFor="optionOne">{poll.optionOne.text}</label>
               </div>
               <div className="input_group">
-                <label>
-                  <input
-                    type="radio"
-                    name="options"
-                    id="optionTwo"
-                    value="optionTwo"
-                    checked={userAnswer === 'optionTwo'}
-                    onChange={this.handleChange}
-                  />
-                  {poll.optionTwo.text}
-                </label>
+                <input
+                  type="radio"
+                  name="options"
+                  id="optionTwo"
+                  value="optionTwo"
+                  checked={userAnswer === 'optionTwo'}
+                  onChange={this.handleChange}
+                  className="input_radio"
+                />{' '}
+                <label htmlFor="optionTwo">{poll.optionTwo.text}</label>
               </div>
               <button className="btn submit" disabled={userAnswer === ''}>
                 Vote

@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import Leader from './Leader';
 
@@ -6,7 +6,7 @@ class LeaderBoard extends Component {
   render() {
     const { users } = this.props;
     return (
-      <Fragment>
+      <div className="leader-board">
         <h1>LeaderBoard</h1>
         <ul className="leader-list">
           {users.map((id, index) => (
@@ -15,7 +15,7 @@ class LeaderBoard extends Component {
             </li>
           ))}
         </ul>
-      </Fragment>
+      </div>
     );
   }
 }

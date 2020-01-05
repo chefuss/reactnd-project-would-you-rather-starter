@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -7,7 +7,7 @@ class Poll extends Component {
   render() {
     const { poll, author } = this.props
     return (
-      <div className="poll-container">
+      <Fragment>
         <h3 className="user-name">{`${author.name} says:`}</h3>
         <div className="user-image">
           <img src={author.avatarURL} alt={author.name} />
@@ -19,7 +19,7 @@ class Poll extends Component {
             <button className="btn">View Poll</button>
           </Link>
         </div>
-      </div>
+      </Fragment>
     );
   }
 }

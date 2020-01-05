@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PollQuestion from './PollQuestion'
 import PollResult from './PollResult'
@@ -20,13 +20,13 @@ class PollPage extends Component {
     const { toResult } = this.state;
 
     return (
-      <Fragment>
+      <div className="poll-page">
         {toResult === false ? (
           <PollQuestion id={id} showResults={this.showResults} />
         ) : (
           <PollResult id={id} />
         )}
-      </Fragment>
+      </div>
     );
   }
 }
