@@ -7,9 +7,7 @@ class PollPage extends Component {
   state = {
     toResult: false
   };
-  //todo: we can set a state for before the user has answer, and another when it has not.
-  //then if one show PollQuestion, if two show PollResult
-  //in that case we have to bring all the data that PollResults needs.
+  
   showResults = e => {
     this.setState({
       toResult: true

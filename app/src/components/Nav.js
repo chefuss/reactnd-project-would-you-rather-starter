@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import { setAuthedUser } from '../actions/authedUser'
+import { removeAuthedUser } from '../actions/authedUser';
 import User from './User'
 
 class Nav extends Component {
   handleClick = (e) => {
     const {dispatch } = this.props
-    dispatch(setAuthedUser(null));
+    dispatch(removeAuthedUser());
   }
   render() {
     return (

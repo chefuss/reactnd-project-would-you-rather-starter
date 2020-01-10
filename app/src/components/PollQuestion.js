@@ -34,7 +34,6 @@ class PollQuestion extends Component {
   render() {
     const { poll, author } = this.props;
     const { userAnswer } = this.state;
-    console.log(this.props)
     return (
       <Fragment>
         <h1>Poll Question</h1>
@@ -82,7 +81,6 @@ class PollQuestion extends Component {
 }
 
 function mapStateToProps({authedUser, users, polls }, props) {
-  console.log(props)
   const poll = polls[props.id]
   return {
     authedUser,
