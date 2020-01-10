@@ -1,6 +1,5 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
-import { connect } from 'react-redux';
 
 class Error404 extends Component {
   render() {
@@ -9,18 +8,14 @@ class Error404 extends Component {
     return (
       <Fragment>
         <div className="error-container"></div>
-        <Link to='/' className="btn">
-          Go to home page
-        </Link>
+        <div className="buttons">
+          <Link to="/" className="btn">
+            Go to home page
+          </Link>
+        </div>
       </Fragment>
     );
   }
 }
 
-function mapStateToProps({ polls }) {
-  const pollsId = Object.keys(polls).sort((a, b) => polls[b].timestamp - polls[a].timestamp);
-  return {
-    pollsId
-  }
-}
-export default connect(mapStateToProps)(Error404);
+export default Error404;

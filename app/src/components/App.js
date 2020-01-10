@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react'
-import { BrowserRouter as Router } from 'react-router-dom'
 import { connect } from 'react-redux';
 import { handleInitialData } from '../actions/shared';
 
@@ -15,11 +14,9 @@ class App extends Component {
   render() {
     const { authedUser } = this.props
     return (
-      <Router>
-        <Fragment>
-        {authedUser === null ? <Login /> : <PrivateApp />}
-        </Fragment>
-      </Router>
+      <Fragment>
+      {authedUser === null ? <Login /> : <PrivateApp />}
+      </Fragment>
     );
   }
 }

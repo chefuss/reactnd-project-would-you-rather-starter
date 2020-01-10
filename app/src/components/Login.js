@@ -28,7 +28,6 @@ class Login extends Component {
     const { username } = this.state;
     const { dispatch } = this.props;
     dispatch(setAuthedUser(username));
-     this.props.history.push('/');
   };
   render() {
     const { username, invalid } = this.state
@@ -66,4 +65,4 @@ function mapStateToProps({ authedUser, users }) {
     users: Object.keys(users)
   };
 }
-export default withRouter(connect(mapStateToProps)(Login));
+export default connect(mapStateToProps)(Login);

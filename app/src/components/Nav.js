@@ -33,7 +33,9 @@ class Nav extends Component {
         </nav>
         <div className="nav">
           <ul>
-            <li><User /></li>
+            <li>
+              <User />
+            </li>
             <li>
               <NavLink to="/login" className="btn" onClick={this.handleClick}>
                 Log out
