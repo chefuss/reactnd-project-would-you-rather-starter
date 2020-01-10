@@ -4,7 +4,7 @@ import Poll from './Poll'
 
 class Home extends Component {
   state = {
-    showing: 'Answered Questions'
+    showing: 'Unanswered Questions'
   };
   handleClick = e => {
     const state = e.target.textContent;
@@ -54,13 +54,12 @@ class Home extends Component {
               {hasentAnswerd.length === 0 && (
                 <li className="notice">You have no Unanswered Questions!!</li>
               )}
-              {hasentAnswerd.length > 0 && (
+              {hasentAnswerd.length > 0 &&
                 hasentAnswerd.map(id => (
-                <li key={id} className="poll-container">
-                  <Poll id={id} />
-                </li>
-                ))
-              )}
+                  <li key={id} className="poll-container">
+                    <Poll id={id} />
+                  </li>
+                ))}
             </ul>
           </Fragment>
         )}
