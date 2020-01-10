@@ -51,7 +51,7 @@ header {
 header .nav {
   width: 100%;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1080px) {
   header .nav {
     width: 50%;
   }
@@ -167,7 +167,7 @@ legend {
   height: 100%;
   display: inline-block;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1080px) {
   .poll-container {
     display: flex;
     flex-wrap: wrap;
@@ -247,7 +247,20 @@ legend {
   font-size: 3rem;
 }
 
-@media screen and (min-width: 768px) {
+.error-container {
+  padding: var(--padding);
+  margin: var(--margin) auto 3.5rem;
+  background-image: url('/404-error.jpg');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  max-width: 734px;
+  min-height: 379px;
+}
+.buttons {
+  text-align: center;
+}
+@media screen and (min-width: 1080px) {
   .leader-container {
     display: flex;
     flex-wrap: wrap;
