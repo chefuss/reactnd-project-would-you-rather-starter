@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setAuthedUser } from '../actions/authedUser'
-import { withRouter } from 'react-router-dom'
 
 class Login extends Component {
   state = {
